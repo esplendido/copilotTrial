@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Execution</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">API Execution</h1>
+        <form id="apiForm">
+            <div class="mb-3">
+                <label for="method" class="form-label">Method</label>
+                <select class="form-select" id="method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <select class="form-select" id="type">
+                    <option value="SOAP">SOAP</option>
+                    <option value="REST">REST</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="url" class="form-label">URL</label>
+                <input type="text" class="form-control" id="url">
+            </div>
+            <div class="mb-3">
+                <label for="headers" class="form-label">Headers</label>
+                <div id="headers">
+                    <!-- Header fields will be dynamically added here -->
+                </div>
+                <button type="button" class="btn btn-secondary" id="addHeader">Add Header</button>
+                <button type="button" class="btn btn-secondary" id="removeHeader">Remove Header</button>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <textarea class="form-control" id="body" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="execute">Execute</button>
+        </form>
+        <hr>
+        <div>
+            <h2>Output</h2>
+            <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input type="text" class="form-control" id="startTime" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input type="text" class="form-control" id="endTime" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="executionTime" class="form-label">Execution Time</label>
+                <input type="text" class="form-control" id="executionTime" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="responseHeaders" class="form-label">Response Headers</label>
+                <textarea class="form-control" id="responseHeaders" rows="3" readonly></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="responseBody" class="form-label">Response Body</label>
+                <textarea class="form-control" id="responseBody" rows="3" readonly></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
