@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>API Execution History</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>API Execution History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Method</th>
+                <th>Headers</th>
+                <th>Body</th>
+                <th>Response</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="history : ${apiHistories}">
+                <td th:text="${history.id}"></td>
+                <td th:text="${history.url}"></td>
+                <td th:text="${history.method}"></td>
+                <td th:text="${history.headers}"></td>
+                <td th:text="${history.body}"></td>
+                <td th:text="${history.response}"></td>
+                <td th:text="${history.timestamp}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/api/history(page=${currentPage - 1})}" th:if="${currentPage > 0}">Previous</a>
+        <span th:text="${currentPage + 1}"></span>
+        <a th:href="@{/api/history(page=${currentPage + 1})}" th:if="${apiHistories.size() == 20}">Next</a>
+    </div>
+</body>
+</html>
